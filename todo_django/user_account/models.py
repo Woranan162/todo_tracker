@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.utils import timezone
 
 # Create your models here.
 class User(AbstractUser):
@@ -28,3 +29,14 @@ class User(AbstractUser):
         """
         return self.first_name
     
+    def can_change_username(self):
+        if self.last_username_change is None:
+            return True
+        weeks_since_change = (timezone.now() - self.last_username_change).days / 7
+        return weeks_since_change >= 2
+
+    def days_until_username_change(self):
+        if self.can_change_username():
+            return 0
+        days_passed = (timezone.now() - self.last_username_change).days
+        return 14 - days_passed  # 14 days = 2 weeks
