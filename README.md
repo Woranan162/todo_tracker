@@ -1,29 +1,5 @@
 # todo_tracker
 
-
-## 📍 API Endpoints
-'''
-http://localhost:8000/
-├── admin/                      - Django admin panel
-├── api-auth/                   - DRF browsable API login
-├── api/
-│   ├── auth/
-│   │   ├── register/           - POST: Register new user
-│   │   ├── login/              - POST: Login
-│   │   ├── logout/             - POST: Logout
-│   │   └── profile/            - GET/PATCH: User profile
-│   └── tasks/
-│       ├── (empty)             - GET: List / POST: Create
-│       ├── {id}/               - GET: Detail / PATCH: Update / DELETE: Delete
-│       ├── {id}/complete/      - POST: Toggle completion
-│       ├── overdue/            - GET: List overdue tasks
-│       └── today/              - GET: List today's tasks
-└── api/
-    ├── schema/                 - API schema (optional)
-    └── docs/                   - Swagger docs (optional)
-'''
-
-
 ## 🔧 Detailed Endpoints
 
 ### Authentication (`/api/auth/`)
