@@ -56,6 +56,7 @@ class TaskCreateSerializer(serializers.ModelSerializer):
     Warns if due date is in the past.
     """
     warning = serializers.SerializerMethodField()
+    description = serializers.CharField(required=False, allow_blank=True, default='')
 
     class Meta:
         model = Task
