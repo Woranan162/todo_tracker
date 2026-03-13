@@ -35,6 +35,12 @@ function DashboardPage() {
           <div className="flex items-center gap-4">
             <span className="text-gray-700">Hello, {user.first_name}!</span>
             <button
+              onClick={() => navigate('/profile')}
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            >
+              👤 Profile
+            </button>
+            <button
               onClick={handleLogout}
               className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
             >
@@ -61,17 +67,17 @@ function DashboardPage() {
           </div>
           
           <div className="mt-6">
-  <button
-    onClick={() => navigate('/tasks')}
-    className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 font-semibold"
-  >
-    📝 View My Tasks
-  </button>
-</div>
+      <button
+        onClick={() => navigate('/tasks')}
+        className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 font-semibold"
+      >
+        📝 View My Tasks
+      </button>
+  </div>
+          </div>
         </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
 
 export default DashboardPage;

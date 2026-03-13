@@ -1,27 +1,43 @@
-## Todo Tracker – Django + React
+# Todo Tracker – Django + React
 
-This project is a full‑stack todo tracker with:
+A full‑stack task management app with a Django REST API backend and a React (Vite) frontend. Users can authenticate, create/update/delete tasks, and view filtered task lists.
 
-- **Backend**: Django + Django REST Framework (`todo_django`)
-- **Frontend**: React + Vite (`todo_react`)
+### Project structure
+
+- `todo_django/` – Django project and REST API
+- `todo_react/` – React + Vite frontend
 
 ---
 
-## 1. Backend (Django API)
+## Quick start
 
-### Run the backend
-
-From `todo_django`:
+**Backend (Django):**
 
 ```bash
+cd todo_django
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
 ```
 
-The API is served at `http://127.0.0.1:8000/api`.
+**Frontend (React):**
+
+```bash
+cd todo_react
+npm install
+npm run dev
+```
+
+Then open `http://localhost:5173/`. The API runs at `http://127.0.0.1:8000/api`.
+
+---
+
+## Backend (Django API)
 
 ### Authentication (`/api/auth/`)
+
+Endpoints for registering users, logging in, managing tokens, and viewing/updating the current user profile.
+
 - `POST /api/auth/register/` – Register a new user account
 - `POST /api/auth/login/` – Authenticate and obtain token
 - `POST /api/auth/logout/` – Logout and revoke token
@@ -29,7 +45,10 @@ The API is served at `http://127.0.0.1:8000/api`.
 - `PATCH /api/auth/profile/` – Update user profile
 
 ### Tasks (`/api/tasks/`)
-- `GET /api/tasks/` – List all tasks (supports filtering/search/order)
+
+CRUD and helper endpoints for tasks belonging to the authenticated user.
+
+- `GET /api/tasks/` – List all tasks (supports filtering, search, ordering)
 - `POST /api/tasks/` – Create a new task
 - `GET /api/tasks/{id}/` – Get specific task details
 - `PATCH /api/tasks/{id}/` – Update a task
@@ -45,34 +64,19 @@ The API is served at `http://127.0.0.1:8000/api`.
 
 ---
 
-## 2. Frontend (React app)
+## Frontend (React app)
 
-The React app lives in `todo_react` and talks to the Django API.
-
-### Configure API base URL
-
-In `todo_react/.env`:
+The React app in `todo_react` talks to the Django API. Set the base URL in `todo_react/.env`:
 
 ```env
 VITE_API_BASE_URL=http://127.0.0.1:8000/api
 ```
 
-### Run the frontend
-
-From `todo_react`:
-
-```bash
-npm install
-npm run dev
-```
-
-Then open `http://localhost:5173/`.
-
 ### Main routes
 
 - `/login` – Login with your Django user
-- `/dashboard` – Shows basic user info
+- `/dashboard` – Basic user info and links
 - `/tasks` – Task list (filter by status, mark complete, delete)
 - `/tasks/create` – Create a new task
 
-For details specific to the React project, see `todo_react/README.md`.
+For more details on the React app (routing, components, styling), see [todo_react/README.md](todo_react/README.md).
