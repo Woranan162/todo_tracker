@@ -275,6 +275,12 @@ function TaskListPage() {
                 {/* Action Buttons */}
                 <div className="flex gap-2">
                   <button
+                    onClick={() => navigate(`/tasks/edit/${task.id}`)}
+                    className="flex-1 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 font-semibold"
+                  >
+                    ✏️ Edit
+                  </button>
+                  <button
                     onClick={() => handleToggleComplete(task.id)}
                     className={`flex-1 px-4 py-2 rounded font-semibold ${
                       task.status === 'completed'
@@ -282,13 +288,13 @@ function TaskListPage() {
                         : 'bg-green-500 text-white hover:bg-green-600'
                     }`}
                   >
-                    {task.status === 'completed' ? '↩️ Reopen' : '✓ Complete'}
+                    {task.status === 'completed' ? '↩️' : '✓'}
                   </button>
                   <button
                     onClick={() => handleDeleteTask(task.id)}
                     className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 font-semibold"
                   >
-                    🗑️ Delete
+                    🗑️
                   </button>
                 </div>
               </div>

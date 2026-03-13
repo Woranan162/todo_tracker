@@ -4,6 +4,7 @@ import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
 import TaskListPage from './pages/TaskListPage';
 import CreateTaskPage from './pages/CreateTaskPage';
+import EditTaskPage from './pages/EditTaskPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/tasks" element={<TaskListPage />} />
         <Route path="/tasks/create" element={<CreateTaskPage />} />
+        <Route path="/tasks/edit/:id" element={<EditTaskPage />} />
         <Route path="/" element={<Navigate to="/login" replace />} />
       </Routes>
     </Router>
